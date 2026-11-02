@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Charms</string>
+
+    <!-- parts of the day and their spells -->
+    <string name="part_morning">Morning</string>
+    <string name="part_day">Day</string>
+    <string name="part_evening">Evening</string>
+    <string name="part_night">Bedtime</string>
+    <string name="spell_morning">Dawn</string>
+    <string name="spell_day">Noon</string>
+    <string name="spell_evening">Dusk</string>
+    <string name="spell_night">Moon Sleep</string>
+
+    <string name="tier_gold">gold</string>
+    <string name="tier_silver">silver</string>
+    <string name="tier_ink">ink</string>
+
+    <string name="rank_1">Apprentice</string>
+    <string name="rank_2">Journeyman</string>
+    <string name="rank_3">Sorcerer</string>
+    <string name="rank_4">Archmage</string>
+
+    <!-- creatures -->
+    <string name="cr_owl">Midnight Owl</string>
+    <string name="cr_owl_about">Keeps watch over books and lessons. Reads upside down and never tells anyone the ending.</string>
+    <string name="cr_cat">Bayun the Cat</string>
+    <string name="cr_cat_about">The cat from the old tales whose songs put anyone to sleep. Fond of a well-made bed.</string>
+    <string name="cr_fox">Tidy Fox</string>
+    <string name="cr_fox_about">Washes her paws seven times a day and her teeth shine in the dark. Can\'t stand a crumb.</string>
+    <string name="cr_hare">Moon Hare</string>
+    <string name="cr_hare_about">Lives on the moon and comes down for a run in the fresh air. Leaves silver tracks.</string>
+    <string name="cr_raven">Keeper Raven</string>
+    <string name="cr_raven_about">Remembers where everything lies. If something is missing from the bag, he knows already.</string>
+    <string name="cr_hedgehog">Housekeeping Hedgehog</string>
+    <string name="cr_hedgehog_about">Carries apples, mushrooms and lost socks to their places. Every place, every thing.</string>
+    <string name="cr_snail">Water Snail</string>
+    <string name="cr_snail_about">Loves warm water and steam. In her shell there\'s a bath with a sea view.</string>
+    <string name="cr_firefly">Lamplighter Firefly</string>
+    <string name="cr_firefly_about">Lights the way to bed and puts the lamp out when the sorcerer falls asleep.</string>
+
+    <!-- preset deeds -->
+    <string name="pr_bed">Make the bed</string>
+    <string name="pr_bed_hint">the made bed</string>
+    <string name="pr_teeth_am">Brush teeth</string>
+    <string name="pr_teeth_pm">Brush teeth before bed</string>
+    <string name="pr_teeth_hint">your shining smile</string>
+    <string name="pr_breakfast">Eat breakfast</string>
+    <string name="pr_breakfast_hint">the empty plate</string>
+    <string name="pr_homework">Do homework</string>
+    <string name="pr_homework_hint">the open exercise book</string>
+    <string name="pr_walk">Go outside</string>
+    <string name="pr_walk_hint">something outdoors: a puddle, a tree, the sky</string>
+    <string name="pr_toys">Put the toys away</string>
+    <string name="pr_toys_hint">the tidy floor</string>
+    <string name="pr_bag">Pack the school bag</string>
+    <string name="pr_bag_hint">the packed bag</string>
+    <string name="pr_shower">Take a shower</string>
+    <string name="pr_shower_hint">the wet towel on its hook</string>
+    <string name="pr_read">Read before bed</string>
+    <string name="pr_read_hint">the open book</string>
+    <string name="pr_sleep">Lights out</string>
+    <string name="pr_sleep_hint">the night light</string>
+
+    <!-- preset potions -->
+    <string name="po_feast">Potion of the Feast</string>
+    <string name="po_feast_r">You choose what we have for dinner</string>
+    <string name="po_tale">Potion of the Tale</string>
+    <string name="po_tale_r">One more story at bedtime</string>
+    <string name="po_invis">Potion of Invisibility</string>
+    <string name="po_invis_r">Half an hour when nobody asks you to do anything</string>
+    <string name="po_owl">Owl\'s Potion</string>
+    <string name="po_owl_r">On Friday you may go to bed an hour later</string>
+    <string name="po_flight">Potion of Flight</string>
+    <string name="po_flight_r">A trip wherever you like: the park, the zoo, the funfair</string>
+
+    <string name="level_1">small</string>
+    <string name="level_2">middling</string>
+    <string name="level_3">great</string>
+
+    <!-- today -->
+    <string name="tab_today">Today</string>
+    <string name="tab_cauldron">Cauldron</string>
+    <string name="tab_grimoire">Grimoire</string>
+    <string name="today_title">%1$s\'s grimoire</string>
+    <string name="today_title_noname">Grimoire</string>
+    <string name="today_rank_next">%1$d charms to %2$s</string>
+    <string name="today_nothing">Nothing is asked today. Rest, sorcerer.</string>
+    <string name="today_rest">The mana has run out today: a day of rest. Nothing is asked, nothing is lost.</string>
+    <string name="deed_before">gold until %1$s</string>
+    <string name="deed_glowing">the page is glowing: silver now</string>
+    <string name="deed_rung">the bell has rung: ink now</string>
+    <string name="deed_done">%1$s</string>
+    <string name="deed_shoot">Photograph: %1$s</string>
+    <string name="deed_charm">Cast the charm</string>
+    <string name="deed_seal">Hold to seal</string>
+    <string name="deed_seal_hint">This page has no picture: hold the seal until it glows.</string>
+    <string name="deed_no_camera">There\'s no camera app on this phone to take the picture.</string>
+    <string name="deed_later">Not yet</string>
+    <string name="charm_working">The charm is working…</string>
+    <string name="charm_gold">Golden charm!</string>
+    <string name="charm_silver">Silver charm</string>
+    <string name="charm_ink">Ink charm</string>
+    <string name="charm_gold_sub">Cast before the page lit up.</string>
+    <string name="charm_silver_sub">The page was already glowing. Tomorrow, try before it does.</string>
+    <string name="charm_ink_sub">The mentor had to ring the bell. It still counts.</string>
+    <string name="charm_visitor">%1$s came to visit!</string>
+    <string name="charm_visitor_short">%1$s came</string>
+    <string name="charm_to_grimoire">Into the grimoire</string>
+    <string name="charm_failed">The charm didn\'t take: the picture couldn\'t be read. Try again.</string>
+    <string name="spell_done">Spell cast: %1$s</string>
+    <string name="spell_done_sub">Every page of the %1$s is charmed. The cauldron gets two more drops.</string>
+
+    <!-- cauldron -->
+    <string name="cauldron_title">The week\'s cauldron</string>
+    <string name="cauldron_points">%1$d of %2$d drops</string>
+    <string name="cauldron_level_0">Not boiling yet</string>
+    <string name="cauldron_level">Will brew a %1$s potion</string>
+    <string name="cauldron_brew">Brew the potion</string>
+    <string name="cauldron_brew_when">The cauldron is brewed on Sunday</string>
+    <string name="cauldron_cold">The cauldron didn\'t boil this week. A new week, a new fire.</string>
+    <string name="cauldron_choose">Choose a potion</string>
+    <string name="cauldron_choose_sub">Any potion up to %1$s strength</string>
+    <string name="cauldron_brewed">Brewed: %1$s</string>
+    <string name="cauldron_show">Show it to your mentor to drink it</string>
+    <string name="cauldron_given">drunk</string>
+    <string name="cauldron_shelf">Potion shelf</string>
+    <string name="cauldron_shelf_empty">The shelf is empty: the mentor puts potions on it.</string>
+    <string name="cauldron_history">Brewed before</string>
+    <string name="cauldron_scale_small">small</string>
+    <string name="cauldron_scale_mid">middling</string>
+    <string name="cauldron_scale_great">great</string>
+
+    <!-- grimoire -->
+    <string name="grimoire_pages">Pages</string>
+    <string name="grimoire_bestiary">Bestiary</string>
+    <string name="grimoire_empty">The grimoire is empty for now. Every charm becomes a page.</string>
+    <string name="grimoire_seal">sealed</string>
+    <string name="bestiary_locked">Not met yet</string>
+    <string name="bestiary_hint">A creature comes to visit after three golden charms of its deed in a row.</string>
+    <string name="bestiary_visits">Visits: %1$d</string>
+    <string name="bestiary_patron">Patron of: %1$s</string>
+
+    <!-- mentor -->
+    <string name="mentor">Mentor</string>
+    <string name="mentor_pin">The mentor\'s word</string>
+    <string name="mentor_pin_sub">Four digits only the mentor knows</string>
+    <string name="mentor_pin_wrong">That\'s not the word</string>
+    <string name="mentor_today">Today</string>
+    <string name="mentor_bell">Ring the bell</string>
+    <string name="mentor_bell_done">The bell has rung</string>
+    <string name="mentor_blot">Blot</string>
+    <string name="mentor_unblot">Remove the blot</string>
+    <string name="mentor_blotted">blotted</string>
+    <string name="mentor_delete_charm">Erase the page</string>
+    <string name="mentor_rest">Mana ran out today (a day of rest)</string>
+    <string name="mentor_rest_sub">For illness or a hard day: nothing is asked, the cauldron loses nothing.</string>
+    <string name="mentor_deeds">Deeds</string>
+    <string name="mentor_add_deed">Add a deed</string>
+    <string name="mentor_potions">Potions</string>
+    <string name="mentor_add_potion">Add a potion</string>
+    <string name="mentor_rewards">Brewed potions to give</string>
+    <string name="mentor_give">Given</string>
+    <string name="mentor_settings">Settings</string>
+    <string name="mentor_name">Sorcerer\'s name</string>
+    <string name="mentor_change_pin">Change the mentor\'s word</string>
+    <string name="mentor_language">Language</string>
+    <string name="mentor_notifications">Let pages light up with a notification</string>
+    <string name="mentor_how">How it works</string>
+    <string name="mentor_how_text">Each deed has a magic hour. Before it the page is quiet, and a charm cast then comes out in gold. At the magic hour the page lights up (a notification): now it\'s silver. If you had to remind them yourself, ring the bell here instead of raising your voice: the charm will be ink. A week of charms brews a potion on Sunday: a real reward from the shelf you fill together. Look through the day\'s pages here; a blot on a picture that isn\'t the deed takes its drops away.</string>
+    <string name="mentor_archived">Archived</string>
+
+    <string name="edit_deed">Deed</string>
+    <string name="edit_title">What to do</string>
+    <string name="edit_part">Part of the day</string>
+    <string name="edit_hour">Magic hour</string>
+    <string name="edit_hour_sub">Gold before it, silver after</string>
+    <string name="edit_days">Days</string>
+    <string name="edit_photo">Charm with a picture</string>
+    <string name="edit_hint">What to photograph</string>
+    <string name="edit_sigil">Sigil</string>
+    <string name="edit_creature">Patron</string>
+    <string name="edit_archive">Archive</string>
+    <string name="edit_restore">Restore</string>
+    <string name="edit_save">Save</string>
+    <string name="edit_cancel">Cancel</string>
+    <string name="edit_potion">Potion</string>
+    <string name="edit_potion_name">Name</string>
+    <string name="edit_potion_reward">What it really is</string>
+    <string name="edit_potion_level">Strength</string>
+    <string name="edit_remove">Remove</string>
+
+    <!-- onboarding -->
+    <string name="ob_title">Charms</string>
+    <string name="ob_lead">A grimoire for a young sorcerer. Every everyday deed is a page; a picture of a deed done becomes an engraving in gold. A week of charms brews a potion: a real reward.</string>
+    <string name="ob_name">What\'s the sorcerer\'s name?</string>
+    <string name="ob_next">Next</string>
+    <string name="ob_deeds">Which deeds go into the grimoire?</string>
+    <string name="ob_deeds_sub">The mentor can change them, their hours and days at any time.</string>
+    <string name="ob_pin">The mentor\'s word</string>
+    <string name="ob_pin_sub">Four digits for the grown-up: they open the mentor\'s page, where deeds and potions are set and the bell is rung.</string>
+    <string name="ob_pin_again">Once more</string>
+    <string name="ob_start">Open the grimoire</string>
+
+    <!-- notifications -->
+    <string name="channel_pages">Glowing pages</string>
+    <string name="channel_pages_desc">A page lights up at its magic hour</string>
+    <string name="channel_bell">The mentor\'s bell</string>
+    <string name="channel_bell_desc">The mentor rings the bell</string>
+    <string name="notify_glow">The page is glowing: %1$s</string>
+    <string name="notify_glow_text">Still time for silver.</string>
+    <string name="notify_glow_many">%1$d pages are glowing</string>
+    <string name="notify_bell">Ding! %1$s</string>
+    <string name="notify_bell_text">The mentor reminds you.</string>
+
+    <string name="day_short_1">Mo</string>
+    <string name="day_short_2">Tu</string>
+    <string name="day_short_3">We</string>
+    <string name="day_short_4">Th</string>
+    <string name="day_short_5">Fr</string>
+    <string name="day_short_6">Sa</string>
+    <string name="day_short_7">Su</string>
+    <string name="back">Back</string>
+    <string name="lang_system">System</string>
+</resources>
