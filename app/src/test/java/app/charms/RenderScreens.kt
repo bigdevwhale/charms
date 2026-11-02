@@ -79,6 +79,8 @@ abstract class RenderBase(private val lang: String) {
             )
         }
         val shown = w.charms.filter { it.day == sunday.toEpochDay() && it.file.isNotEmpty() }.maxByOrNull { it.at }
+        // a seal: the last night's lights out, shown as if sealed today
+        val sleep = w.deeds.first { !it.photo }
         var screen by androidx.compose.runtime.mutableIntStateOf(0)
         rule.setContent {
             CharmsTheme {
@@ -91,14 +93,15 @@ abstract class RenderBase(private val lang: String) {
                         3 -> CauldronTab(w)
                         4 -> GrimoireTab(w)
                         5 -> GrimoireTab(w, startView = 1)
-                        else -> MentorScreen(w, onClose = {})
+                        6 -> MentorScreen(w, onClose = {})
+                        else -> RevealScreen(sleep.id, seal = true, onDone = {}, today = sunday.minusDays(1))
                     }
                 }
             }
         }
-        listOf("0-welcome", "1-today", "2-charm", "3-cauldron", "4-grimoire", "5-bestiary", "6-mentor").forEachIndexed { i, name ->
+        listOf("0-welcome", "1-today", "2-charm", "3-cauldron", "4-grimoire", "5-bestiary", "6-mentor", "7-seal").forEachIndexed { i, name ->
             screen = i
-            settle(if (i == 2) 5000 else 2500)
+            settle(if (i == 2 || i == 7) 5000 else 2500)
             shot(name)
         }
         if (lang == "en") {

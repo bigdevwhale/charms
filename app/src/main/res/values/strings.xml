@@ -109,7 +109,7 @@
     <string name="charm_to_grimoire">Into the grimoire</string>
     <string name="charm_failed">The charm didn\'t take: the picture couldn\'t be read. Try again.</string>
     <string name="spell_done">Spell cast: %1$s</string>
-    <string name="spell_done_sub">Every page of the %1$s is charmed. The cauldron gets two more drops.</string>
+    <string name="spell_done_sub">Every page of this part of the day is charmed. Two more drops fall into the cauldron.</string>
 
     <!-- cauldron -->
     <string name="cauldron_title">The week\'s cauldron</string>

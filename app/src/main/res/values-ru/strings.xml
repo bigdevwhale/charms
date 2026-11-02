@@ -104,7 +104,7 @@
     <string name="charm_to_grimoire">В гримуар</string>
     <string name="charm_failed">Чары не сложились: снимок не читается. Попробуй ещё раз.</string>
     <string name="spell_done">Заклинание сотворено: %1$s</string>
-    <string name="spell_done_sub">Все страницы этой части дня зачарованы (%1$s). В котёл добавляются ещё две капли.</string>
+    <string name="spell_done_sub">Все страницы этой части дня зачарованы. В котёл падают ещё две капли.</string>
 
     <string name="cauldron_title">Котёл недели</string>
     <string name="cauldron_points">%1$d из %2$d капель</string>

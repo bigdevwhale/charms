@@ -303,7 +303,7 @@ private fun Revealed(cast: Cast, page: Bitmap?, onDone: () -> Unit) {
                     cast.spells.forEach { part ->
                         Spacer(Modifier.height(14.dp))
                         Text(stringResource(R.string.spell_done, stringResource(part.spell)), style = F.title.copy(color = C.goldLight), textAlign = TextAlign.Center)
-                        Text(stringResource(R.string.spell_done_sub, stringResource(part.title).lowercase()), style = F.small, textAlign = TextAlign.Center)
+                        Text(stringResource(R.string.spell_done_sub), style = F.small, textAlign = TextAlign.Center)
                     }
                     Spacer(Modifier.height(22.dp))
                     GoldButton(stringResource(R.string.charm_to_grimoire), Modifier.fillMaxWidth(), onClick = onDone)

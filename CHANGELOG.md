@@ -6,6 +6,14 @@ line "<!-- tg", then 2-4 short lines in Russian for users (what is new, what is 
 then close it like any HTML comment. The release notes carry it, and the chat bot posts those lines.
 -->
 
+## [1.0.1]
+
+- The spell message reads plainly: every page of this part of the day is charmed, two more drops fall into the cauldron.
+- Bestiary cards are tall enough for a creature's whole story.
+- The README follows the other StillCraft apps.
+
+<!-- tg skip -->
+
 ## [1.0.0]
 
 The first version.
