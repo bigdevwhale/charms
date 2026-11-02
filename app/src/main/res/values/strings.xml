@@ -147,7 +147,7 @@
     <string name="mentor_pin_sub">Four digits only the mentor knows</string>
     <string name="mentor_pin_wrong">That\'s not the word</string>
     <string name="mentor_today">Today</string>
-    <string name="mentor_bell">Ring the bell</string>
+    <string name="mentor_bell">Ring</string>
     <string name="mentor_bell_done">The bell has rung</string>
     <string name="mentor_blot">Blot</string>
     <string name="mentor_unblot">Remove the blot</string>

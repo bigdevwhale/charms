@@ -96,7 +96,7 @@
     <string name="charm_gold">Золотые чары!</string>
     <string name="charm_silver">Серебряные чары</string>
     <string name="charm_ink">Чары тушью</string>
-    <string name="charm_gold_sub">Успел до того, как страница засветилась.</string>
+    <string name="charm_gold_sub">Получилось до того, как страница засветилась.</string>
     <string name="charm_silver_sub">Страница уже светилась. Завтра попробуй раньше.</string>
     <string name="charm_ink_sub">Наставнику пришлось позвонить в колокольчик. Но засчитано.</string>
     <string name="charm_visitor">В гости пришёл: %1$s!</string>
@@ -139,7 +139,7 @@
     <string name="mentor_pin_sub">Четыре цифры, которые знает только наставник</string>
     <string name="mentor_pin_wrong">Это не то слово</string>
     <string name="mentor_today">Сегодня</string>
-    <string name="mentor_bell">Позвонить в колокольчик</string>
+    <string name="mentor_bell">Позвонить</string>
     <string name="mentor_bell_done">Колокольчик прозвенел</string>
     <string name="mentor_blot">Клякса</string>
     <string name="mentor_unblot">Стереть кляксу</string>

@@ -136,7 +136,7 @@ fun PinPad(typed: String, onKey: (Int) -> Unit) {
                         Modifier.size(58.dp).clip(CircleShape)
                             .then(if (k == -2) Modifier else Modifier.border(1.dp, C.line, CircleShape).clickable { onKey(k) }),
                         contentAlignment = Alignment.Center,
-                    ) { if (k >= 0) Text("$k", style = F.title) else if (k == -1) Text("⌫", style = F.heading.copy(color = C.dim)) }
+                    ) { if (k >= 0) Text("$k", style = F.title.copy(fontFamily = F.sans, fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold, fontSize = androidx.compose.ui.unit.TextUnit(22f, androidx.compose.ui.unit.TextUnitType.Sp))) else if (k == -1) Text("⌫", style = F.heading.copy(color = C.dim)) }
                 }
             }
         }
@@ -194,7 +194,11 @@ fun MentorScreen(w: World, onClose: () -> Unit) {
                             }
                         }
                         PageState.Rung -> Icon(Icons.Outlined.NotificationsActive, null, tint = C.ink)
-                        else -> TextButton(onClick = { c.write { grimoire.ring(ctx, d.id) } }) { Text(stringResource(R.string.mentor_bell), color = C.gold) }
+                        else -> TextButton(onClick = { c.write { grimoire.ring(ctx, d.id) } }) {
+                            Icon(Icons.Outlined.NotificationsActive, null, tint = C.gold, modifier = Modifier.size(18.dp))
+                            Spacer(Modifier.width(4.dp))
+                            Text(stringResource(R.string.mentor_bell), color = C.gold)
+                        }
                     }
                 }
             }
@@ -230,7 +234,7 @@ fun MentorScreen(w: World, onClose: () -> Unit) {
                         Text(d.title, style = F.body.copy(color = if (d.archived) C.faint else C.text))
                         Text(
                             if (d.archived) stringResource(R.string.mentor_archived)
-                            else T.minutes(ctx, d.magicHour) + " · " + stringResource(Part.of(d.part).title) + " · " + days(ctx, d.days),
+                            else listOf(T.minutes(ctx, d.magicHour), stringResource(Part.of(d.part).title), days(ctx, d.days)).filter { it.isNotEmpty() }.joinToString(" · "),
                             style = F.small,
                         )
                     }
@@ -304,6 +308,7 @@ fun switchColors() = SwitchDefaults.colors(checkedThumbColor = C.night, checkedT
 fun fieldColors() = OutlinedTextFieldDefaults.colors(
     focusedBorderColor = C.gold, unfocusedBorderColor = C.line, focusedLabelColor = C.gold, unfocusedLabelColor = C.dim,
     cursorColor = C.gold, focusedTextColor = C.text, unfocusedTextColor = C.text,
+    focusedContainerColor = C.night2, unfocusedContainerColor = C.night2,
 )
 
 @Composable

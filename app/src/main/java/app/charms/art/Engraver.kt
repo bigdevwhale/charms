@@ -112,7 +112,7 @@ object Engraver {
             val p = px[i]
             (0.299f * Color.red(p) + 0.587f * Color.green(p) + 0.114f * Color.blue(p)) / 255f
         }
-        lum = blur(blur(lum, w, h, 1), w, h, 1)
+        lum = blur(blur(lum, w, h, 2), w, h, 1)
         stretch(lum)
         val local = blur(lum, w, h, 16)
         val v = FloatArray(n) { i -> (lum[i] + .75f * (lum[i] - local[i])).coerceIn(0f, 1f).pow(.9f) }
@@ -190,7 +190,8 @@ object Engraver {
     private fun stretch(a: FloatArray) {
         val lo = percentile(a, .02f)
         val hi = percentile(a, .985f)
-        val span = max(hi - lo, .08f)
+        // A blank wall shouldn't have its sensor noise blown up into texture.
+        val span = max(hi - lo, .32f)
         for (i in a.indices) a[i] = ((a[i] - lo) / span).coerceIn(0f, 1f)
     }
 
