@@ -13,7 +13,10 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -41,6 +44,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
@@ -176,36 +180,43 @@ fun PageDialog(ch: Charm, w: World, onClose: () -> Unit) {
 @Composable
 private fun Bestiary(w: World) {
     val visits = w.charms.filter { it.visitor >= 0 && !it.blot }.groupingBy { it.visitor }.eachCount()
-    LazyVerticalGrid(
-        GridCells.Fixed(2), Modifier.fillMaxSize(),
-        contentPadding = PaddingValues(start = 18.dp, end = 18.dp, bottom = 24.dp),
-        horizontalArrangement = Arrangement.spacedBy(10.dp), verticalArrangement = Arrangement.spacedBy(10.dp),
+    // Every card the same size, met or not: rows of two, a fixed height.
+    Column(
+        Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(start = 18.dp, end = 18.dp, bottom = 24.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp),
     ) {
-        item(span = { GridItemSpan(2) }) { Text(stringResource(R.string.bestiary_hint), style = F.small, modifier = Modifier.padding(bottom = 4.dp)) }
-        items(Creature.entries) { cr ->
-            val n = visits[cr.ordinal] ?: 0
-            val patronOf = w.deeds.filter { it.creature == cr.ordinal }.joinToString(", ") { it.title }
-            Column(
-                Modifier
-                    .clip(RoundedCornerShape(16.dp))
-                    .background(C.panel)
-                    .border(1.dp, if (n > 0) C.gold.copy(alpha = .6f) else C.line, RoundedCornerShape(16.dp))
-                    .padding(12.dp),
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
-                CreatureArt(cr, if (n > 0) C.goldLight else C.line, 96.dp)
-                Spacer(Modifier.height(6.dp))
-                if (n > 0) {
-                    Text(stringResource(cr.title), style = F.heading.copy(color = C.goldLight), textAlign = TextAlign.Center)
-                    Text(stringResource(cr.about), style = F.small, textAlign = TextAlign.Center)
-                    Spacer(Modifier.height(4.dp))
-                    Text(stringResource(R.string.bestiary_visits, n), style = F.small.copy(color = C.gold))
-                } else {
-                    Text("?", style = F.title.copy(color = C.faint))
-                    Text(stringResource(R.string.bestiary_locked), style = F.small, textAlign = TextAlign.Center)
-                }
-                if (patronOf.isNotEmpty()) Text(stringResource(R.string.bestiary_patron, patronOf), style = F.small.copy(color = C.faint), textAlign = TextAlign.Center, modifier = Modifier.padding(top = 4.dp))
+        Text(stringResource(R.string.bestiary_hint), style = F.small, modifier = Modifier.padding(bottom = 4.dp))
+        Creature.entries.chunked(2).forEach { row ->
+            Row(Modifier.fillMaxWidth().height(306.dp), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                row.forEach { cr -> CreatureCard(cr, visits[cr.ordinal] ?: 0, w, Modifier.weight(1f).fillMaxHeight()) }
             }
         }
+    }
+}
+
+@Composable
+private fun CreatureCard(cr: Creature, n: Int, w: World, modifier: Modifier) {
+    val patronOf = w.deeds.filter { it.creature == cr.ordinal }.joinToString(", ") { it.title }
+    Column(
+        modifier
+            .clip(RoundedCornerShape(16.dp))
+            .background(C.panel)
+            .border(1.dp, if (n > 0) C.gold.copy(alpha = .6f) else C.line, RoundedCornerShape(16.dp))
+            .padding(12.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+    ) {
+        CreatureArt(cr, if (n > 0) C.goldLight else C.line, 96.dp)
+        Spacer(Modifier.height(6.dp))
+        if (n > 0) {
+            Text(stringResource(cr.title), style = F.heading.copy(color = C.goldLight), textAlign = TextAlign.Center, maxLines = 2, overflow = TextOverflow.Ellipsis)
+            Text(stringResource(cr.about), style = F.small, textAlign = TextAlign.Center, maxLines = 4, overflow = TextOverflow.Ellipsis)
+            Spacer(Modifier.height(4.dp))
+            Text(stringResource(R.string.bestiary_visits, n), style = F.small.copy(color = C.gold))
+        } else {
+            Text("?", style = F.title.copy(color = C.faint))
+            Text(stringResource(R.string.bestiary_locked), style = F.small, textAlign = TextAlign.Center)
+        }
+        if (patronOf.isNotEmpty()) Text(stringResource(R.string.bestiary_patron, patronOf), style = F.small.copy(color = C.faint), textAlign = TextAlign.Center, maxLines = 3, overflow = TextOverflow.Ellipsis, modifier = Modifier.padding(top = 6.dp))
     }
 }
