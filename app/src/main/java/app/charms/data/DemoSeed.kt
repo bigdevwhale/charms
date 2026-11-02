@@ -20,6 +20,8 @@ object DemoSeed {
         c: AppContainer,
         list: () -> List<String> = { context.assets.list("demo")?.toList().orEmpty() },
         open: (String) -> InputStream = { context.assets.open(it) },
+        /** The renders move "today" to a Sunday, so the week's cauldron is full and ready to brew. */
+        today: java.time.LocalDate = Magic.today(),
     ) {
         val dao = c.db.dao()
         if (c.settings.now().onboarded || dao.allDeeds().isNotEmpty()) return
@@ -27,7 +29,6 @@ object DemoSeed {
         c.grimoire.start(context, if (ru) "Маша" else "Masha", "1234", Presets.all.indices.filter { Presets.all[it].on })
         val deeds = dao.deeds()
         val pics = list().filter { it.endsWith(".jpg") }.sorted()
-        val today = Magic.today()
         val r = Random(11)
         for (back in 13 downTo 0) {
             val day = today.minusDays(back.toLong())

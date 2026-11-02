@@ -168,6 +168,15 @@
     <string name="mentor_change_pin">Change the mentor\'s word</string>
     <string name="mentor_language">Language</string>
     <string name="mentor_notifications">Let pages light up with a notification</string>
+    <string name="community">Community</string>
+    <string name="community_bug">Report a bug</string>
+    <string name="community_bug_sub">opens the bot in Telegram</string>
+    <string name="community_idea">Suggest an idea</string>
+    <string name="community_idea_sub">what the grimoire is missing</string>
+    <string name="community_follow">Follow updates</string>
+    <string name="community_follow_sub">a message when a new version is out</string>
+    <string name="community_chat">StillCraft chat</string>
+    <string name="community_chat_sub">people who use these apps</string>
     <string name="mentor_how">How it works</string>
     <string name="mentor_how_text">Each deed has a magic hour. Before it the page is quiet, and a charm cast then comes out in gold. At the magic hour the page lights up (a notification): now it\'s silver. If you had to remind them yourself, ring the bell here instead of raising your voice: the charm will be ink. A week of charms brews a potion on Sunday: a real reward from the shelf you fill together. Look through the day\'s pages here; a blot on a picture that isn\'t the deed takes its drops away.</string>
     <string name="mentor_archived">Archived</string>

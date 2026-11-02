@@ -118,6 +118,8 @@ dependencies {
 // The renderers (`-Prender`) draw engravings and screens to app/build/art for a look; they're not tests.
 tasks.withType<Test>().configureEach {
     if (!project.hasProperty("render")) exclude("**/RenderArt*", "**/RenderScreens*")
+    // DataStore is one per process: each language renders in its own JVM.
+    if (project.hasProperty("render")) forkEvery = 1
     systemProperty("render.out", layout.buildDirectory.dir("art").get().asFile.absolutePath)
     systemProperty("render.photos", (findProperty("photos") as String?) ?: file("src/demo/assets/demo").absolutePath)
 }

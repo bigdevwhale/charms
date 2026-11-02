@@ -68,8 +68,8 @@ import kotlinx.coroutines.withContext
 import java.time.LocalDate
 
 @Composable
-fun GrimoireTab(w: World) {
-    var view by rememberSaveable { mutableStateOf(0) }
+fun GrimoireTab(w: World, startView: Int = 0) {
+    var view by rememberSaveable { mutableStateOf(startView) }
     var open by rememberSaveable { mutableLongStateOf(0L) }
     Column(Modifier.fillMaxSize().statusBarsPadding()) {
         Row(Modifier.fillMaxWidth().padding(start = 18.dp, end = 18.dp, top = 14.dp), verticalAlignment = Alignment.Bottom) {
@@ -187,7 +187,7 @@ private fun Bestiary(w: World) {
     ) {
         Text(stringResource(R.string.bestiary_hint), style = F.small, modifier = Modifier.padding(bottom = 4.dp))
         Creature.entries.chunked(2).forEach { row ->
-            Row(Modifier.fillMaxWidth().height(306.dp), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+            Row(Modifier.fillMaxWidth().height(384.dp), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                 row.forEach { cr -> CreatureCard(cr, visits[cr.ordinal] ?: 0, w, Modifier.weight(1f).fillMaxHeight()) }
             }
         }
@@ -209,8 +209,8 @@ private fun CreatureCard(cr: Creature, n: Int, w: World, modifier: Modifier) {
         CreatureArt(cr, if (n > 0) C.goldLight else C.line, 96.dp)
         Spacer(Modifier.height(6.dp))
         if (n > 0) {
-            Text(stringResource(cr.title), style = F.heading.copy(color = C.goldLight), textAlign = TextAlign.Center, maxLines = 2, overflow = TextOverflow.Ellipsis)
-            Text(stringResource(cr.about), style = F.small, textAlign = TextAlign.Center, maxLines = 4, overflow = TextOverflow.Ellipsis)
+            Text(stringResource(cr.title), style = F.heading.copy(color = C.goldLight, fontSize = androidx.compose.ui.unit.TextUnit(17f, androidx.compose.ui.unit.TextUnitType.Sp), lineHeight = androidx.compose.ui.unit.TextUnit(20f, androidx.compose.ui.unit.TextUnitType.Sp)), textAlign = TextAlign.Center, maxLines = 2, overflow = TextOverflow.Ellipsis)
+            Text(stringResource(cr.about), style = F.small, textAlign = TextAlign.Center, maxLines = 6, overflow = TextOverflow.Ellipsis)
             Spacer(Modifier.height(4.dp))
             Text(stringResource(R.string.bestiary_visits, n), style = F.small.copy(color = C.gold))
         } else {

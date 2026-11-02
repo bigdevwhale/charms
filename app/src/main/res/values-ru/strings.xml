@@ -160,6 +160,15 @@
     <string name="mentor_change_pin">Сменить слово наставника</string>
     <string name="mentor_language">Язык</string>
     <string name="mentor_notifications">Разрешить страницам светиться уведомлением</string>
+    <string name="community">Сообщество</string>
+    <string name="community_bug">Сообщить об ошибке</string>
+    <string name="community_bug_sub">откроется бот в Телеграме</string>
+    <string name="community_idea">Предложить идею</string>
+    <string name="community_idea_sub">чего не хватает гримуару</string>
+    <string name="community_follow">Следить за обновлениями</string>
+    <string name="community_follow_sub">сообщение, когда выйдет новая версия</string>
+    <string name="community_chat">Чат StillCraft</string>
+    <string name="community_chat_sub">люди, которые пользуются этими приложениями</string>
     <string name="mentor_how">Как это устроено</string>
     <string name="mentor_how_text">У каждого дела есть магический час. До него страница спокойна, и чары выходят золотыми. В магический час страница засвечивается (приходит уведомление): теперь это серебро. Если пришлось напомнить самим, не повышайте голос, а позвоните здесь в колокольчик: чары выйдут тушью. За неделю чары варят зелье, и в воскресенье его можно выпить: это настоящая награда с полки, которую вы наполняете вместе. Здесь же можно пролистать страницы дня. Клякса на снимке, где явно не то дело, отнимает его капли.</string>
     <string name="mentor_archived">В архиве</string>

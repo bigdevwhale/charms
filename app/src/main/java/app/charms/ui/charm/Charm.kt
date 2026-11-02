@@ -168,7 +168,7 @@ private fun SealButton(d: Deed, onSealed: () -> Unit) {
 
 /** The charm working, then the page it became. */
 @Composable
-fun RevealScreen(deedId: Long, seal: Boolean, onDone: () -> Unit) {
+fun RevealScreen(deedId: Long, seal: Boolean, onDone: () -> Unit, today: java.time.LocalDate = app.charms.domain.Magic.today()) {
     val ctx = LocalContext.current
     val c = ctx.container
     var cast by remember { mutableStateOf<Cast?>(null) }
@@ -179,8 +179,8 @@ fun RevealScreen(deedId: Long, seal: Boolean, onDone: () -> Unit) {
         val result = withContext(Dispatchers.Default) {
             if (seal) {
                 val d = c.db.dao().deed(deedId)
-                val ch = c.db.dao().charm(deedId, app.charms.domain.Magic.today().toEpochDay())
-                if (d != null && ch != null) Cast(ch, d, app.charms.domain.Magic.spells(c.db.dao().deeds(), c.db.dao().charms(ch.day, ch.day), app.charms.domain.Magic.today()).let { all ->
+                val ch = c.db.dao().charm(deedId, today.toEpochDay())
+                if (d != null && ch != null) Cast(ch, d, app.charms.domain.Magic.spells(c.db.dao().deeds(), c.db.dao().charms(ch.day, ch.day), today).let { all ->
                     // a seal's finished spell: the part of this deed, if all of it is done now
                     all.filter { it.name == d.part }
                 }) else null

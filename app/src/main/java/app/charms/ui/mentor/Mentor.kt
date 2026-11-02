@@ -96,6 +96,16 @@ import app.charms.ui.theme.F
 import app.charms.ui.today.PageState
 import app.charms.ui.today.pageState
 
+/** The StillCraft bot: deep links file a bug or an idea for this app, or follow its releases. */
+object Community {
+    private const val BOT = "https://t.me/ArcaneWhisperBot?start="
+    const val SLUG = "charms"
+    const val BUG = "${BOT}bug_$SLUG"
+    const val IDEA = "${BOT}wish_$SLUG"
+    const val FOLLOW = "${BOT}f_$SLUG"
+    const val CHAT = "https://t.me/+Q4gFEDk8O842OGVi"
+}
+
 /** Four digits only the grown-up knows. */
 @Composable
 fun PinDialog(pin: String, onDismiss: () -> Unit, onOk: () -> Unit) {
@@ -268,6 +278,20 @@ fun MentorScreen(w: World, onClose: () -> Unit) {
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.padding(top = 6.dp)) {
                     listOf("" to stringResource(R.string.lang_system), "ru" to "Русский", "en" to "English").forEach { (tag, label) ->
                         Chip(label, current == tag) { AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(tag)) }
+                    }
+                }
+                SectionLabel(stringResource(R.string.community))
+                listOf(
+                    Triple(R.string.community_bug, R.string.community_bug_sub, Community.BUG),
+                    Triple(R.string.community_idea, R.string.community_idea_sub, Community.IDEA),
+                    Triple(R.string.community_follow, R.string.community_follow_sub, Community.FOLLOW),
+                    Triple(R.string.community_chat, R.string.community_chat_sub, Community.CHAT),
+                ).forEach { (title, sub, url) ->
+                    Column(Modifier.fillMaxWidth().clickable {
+                        runCatching { ctx.startActivity(android.content.Intent(android.content.Intent.ACTION_VIEW, android.net.Uri.parse(url)).addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)) }
+                    }.padding(vertical = 9.dp)) {
+                        Text(stringResource(title), style = F.body.copy(color = C.gold))
+                        Text(stringResource(sub), style = F.small)
                     }
                 }
                 SectionLabel(stringResource(R.string.mentor_how))
