@@ -41,12 +41,12 @@ class Grimoire(private val c: AppContainer) {
         val day = Magic.dayOf(at)
         val tier = Magic.tier(deed, at, dao.bell(deedId, day.toEpochDay()))
         val visitor = Magic.visitor(deed, tier, day, dao.charms(day.minusDays(20).toEpochDay(), day.toEpochDay() - 1))
-        val name = engraveAndStore(context, bmp, deed, tier, day, visitor)
+        val name = engraveAndStore(context, bmp, deed, tier, day, visitor, c.settings.now().engrave)
         photo.delete()
         return save(deed, day, at, tier, name, visitor)
     }
 
-    fun engraveAndStore(context: Context, bmp: Bitmap, deed: Deed, tier: Tier, day: LocalDate, visitor: Int): String {
+    fun engraveAndStore(context: Context, bmp: Bitmap, deed: Deed, tier: Tier, day: LocalDate, visitor: Int, filter: Boolean = true): String {
         val l = context.localized()
         val v = if (visitor >= 0) Creature.of(visitor) else null
         val spec = Engraver.Spec(
@@ -54,7 +54,7 @@ class Grimoire(private val c: AppContainer) {
             sigil = deed.sigil, patron = Creature.of(deed.creature), visitor = v,
             visitorLabel = v?.let { l.getString(R.string.charm_visitor_short, l.getString(it.title)) } ?: "",
         )
-        val page = Engraver.engrave(bmp, spec, fonts(context))
+        val page = Engraver.engrave(bmp, spec, fonts(context), filter)
         bmp.recycle()
         val name = c.vault.put(page)
         page.recycle()

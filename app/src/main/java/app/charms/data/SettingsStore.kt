@@ -25,6 +25,8 @@ data class Settings(
     val spellsSeen: String = "",
     /** The capture in progress (deed id), so a camera trip survives the app being killed. */
     val pending: Long = 0,
+    /** Pictures become engravings; off, they stay colour photographs in the page's frame. */
+    val engrave: Boolean = true,
 )
 
 class SettingsStore(context: Context) {
@@ -39,6 +41,7 @@ class SettingsStore(context: Context) {
         fired = this[FIRED] ?: "",
         spellsSeen = this[SPELLS] ?: "",
         pending = this[PENDING] ?: 0L,
+        engrave = this[ENGRAVE] ?: true,
     )
 
     suspend fun now(): Settings = settings.first()
@@ -52,6 +55,7 @@ class SettingsStore(context: Context) {
             it[FIRED] = s.fired
             it[SPELLS] = s.spellsSeen
             it[PENDING] = s.pending
+            it[ENGRAVE] = s.engrave
         }
     }
 
@@ -62,5 +66,6 @@ class SettingsStore(context: Context) {
         val FIRED = stringPreferencesKey("fired")
         val SPELLS = stringPreferencesKey("spells_seen")
         val PENDING = longPreferencesKey("pending")
+        val ENGRAVE = booleanPreferencesKey("engrave")
     }
 }

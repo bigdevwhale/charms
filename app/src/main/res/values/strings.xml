@@ -163,6 +163,8 @@
     <string name="mentor_give">Given</string>
     <string name="mentor_settings">Settings</string>
     <string name="mentor_name">Sorcerer\'s name</string>
+    <string name="mentor_engrave">Turn pictures into engravings</string>
+    <string name="mentor_engrave_sub">Off: the picture stays a colour photograph in the page\'s frame. Pages already made don\'t change.</string>
     <string name="mentor_change_pin">Change the mentor\'s word</string>
     <string name="mentor_language">Language</string>
     <string name="mentor_notifications">Let pages light up with a notification</string>

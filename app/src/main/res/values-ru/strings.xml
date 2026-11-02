@@ -155,6 +155,8 @@
     <string name="mentor_give">Выдано</string>
     <string name="mentor_settings">Настройки</string>
     <string name="mentor_name">Имя чародея</string>
+    <string name="mentor_engrave">Превращать снимки в гравюру</string>
+    <string name="mentor_engrave_sub">Если выключить, снимок останется цветной фотографией в рамке страницы. Уже готовые страницы не меняются.</string>
     <string name="mentor_change_pin">Сменить слово наставника</string>
     <string name="mentor_language">Язык</string>
     <string name="mentor_notifications">Разрешить страницам светиться уведомлением</string>

@@ -255,6 +255,13 @@ fun MentorScreen(w: World, onClose: () -> Unit) {
                 SectionLabel(stringResource(R.string.mentor_settings))
                 SettingRow(stringResource(R.string.mentor_name), w.settings.name) { editName = true }
                 SettingRow(stringResource(R.string.mentor_change_pin), "••••") { changePin = true }
+                Row(Modifier.fillMaxWidth().padding(vertical = 8.dp), verticalAlignment = Alignment.CenterVertically) {
+                    Column(Modifier.weight(1f)) {
+                        Text(stringResource(R.string.mentor_engrave), style = F.body)
+                        Text(stringResource(R.string.mentor_engrave_sub), style = F.small)
+                    }
+                    Switch(w.settings.engrave, { v -> c.write { settings.update { it.copy(engrave = v) } } }, colors = switchColors())
+                }
                 if (!Alarms.canNotify(ctx) && Build.VERSION.SDK_INT >= 33) SettingRow(stringResource(R.string.mentor_notifications), "") { notifyAsk.launch(Manifest.permission.POST_NOTIFICATIONS) }
                 Text(stringResource(R.string.mentor_language), style = F.body, modifier = Modifier.padding(top = 12.dp))
                 val current = AppCompatDelegate.getApplicationLocales().toLanguageTags()

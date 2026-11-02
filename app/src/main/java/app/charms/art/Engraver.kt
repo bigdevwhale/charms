@@ -66,12 +66,13 @@ object Engraver {
     private const val AW = W - 2 * AX
     private const val AH = 1060
 
-    fun engrave(photo: Bitmap, spec: Spec, fonts: Fonts): Bitmap {
+    /** With [filter] off the picture stays a colour photograph, set in the same page. */
+    fun engrave(photo: Bitmap, spec: Spec, fonts: Fonts, filter: Boolean = true): Bitmap {
         val out = Bitmap.createBitmap(W, H, Bitmap.Config.ARGB_8888)
         val c = Canvas(out)
         val m = metal(spec.tier)
         parchment(c)
-        val art = hatch(cropTo(photo, AW, AH), m)
+        val art = if (filter) hatch(cropTo(photo, AW, AH), m) else plain(cropTo(photo, AW, AH))
         c.drawBitmap(art, AX.toFloat(), AY.toFloat(), null)
         art.recycle()
         frame(c, spec, m, fonts)
@@ -165,6 +166,26 @@ object Engraver {
             }
         }
         return Bitmap.createBitmap(res, w, h, Bitmap.Config.ARGB_8888)
+    }
+
+    /** The photograph as it is, its edges fading into the page like the engraving's. */
+    private fun plain(src: Bitmap): Bitmap {
+        val w = src.width
+        val h = src.height
+        val px = IntArray(w * h)
+        src.getPixels(px, 0, w, 0, 0, w, h)
+        src.recycle()
+        val feather = 46f
+        for (y in 0 until h) {
+            val ey = min(y, h - 1 - y) / feather
+            for (x in 0 until w) {
+                val ex = min(x, w - 1 - x) / feather
+                val a = smooth(0f, 1f, min(min(ex, ey), 1f))
+                val i = y * w + x
+                px[i] = (px[i] and 0x00FFFFFF) or ((a * 255).toInt() shl 24)
+            }
+        }
+        return Bitmap.createBitmap(px, w, h, Bitmap.Config.ARGB_8888)
     }
 
     /** 0 on a line's centre, 1 halfway to the next. */
